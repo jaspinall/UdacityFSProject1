@@ -66,14 +66,18 @@
 
       // Start playing the video whenever the trailer modal is opened
        $(document).on('click', '.movie-tile', function (event) {
-            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var storyline= "Storyline: "+ $(this).attr('data-movie-storyline');
+            $("#trailer-video-container").html(storyline);
+
+            /*var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
               'id': 'trailer-video',
               'type': 'text-html',
               'src': sourceUrl,
               'frameborder': 0
-            }));
+            }));*/
+
         }); 
         
         // Animate in the movies when the page loads
@@ -111,53 +115,41 @@
     </div>
     <div class="container">
       
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="OqVgCfZX-yE" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="OqVgCfZX-yE" data-movie-storyline="A relationship between a man and a woman begins and ends." data-toggle="modal" data-target="#trailer">
     <img src="https://upload.wikimedia.org/wikipedia/en/e/e6/Anniehallposter.jpg" width="220" height="342">
-    <h2>Annie Hall</h2>
-    <div class="storyline">
-      <p>A relationship between a man and a woman begins and ends.</p>
-    </div>  
+    <h2>Annie Hall</h2> 
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="cDDdeHtrxfA" data-toggle="modal" data-target="#trailer">
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="cDDdeHtrxfA" data-movie-storyline="A movie based on the classic board game" data-toggle="modal" data-target="#trailer">
     <img src="https://upload.wikimedia.org/wikipedia/en/1/18/Clue_Poster.jpg" width="220" height="342">
-    <h2>Clue</h2>
-    <div class="storyline">
-      <p>A movie based on the classic board game</p>
-    </div>  
+    <h2>Clue</h2> 
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="9e590FeeGCM" data-toggle="modal" data-target="#trailer">
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="9e590FeeGCM" data-movie-storyline="After wandering in the desert, a man reunites with his son and wife." data-toggle="modal" data-target="#trailer">
     <img src="https://upload.wikimedia.org/wikipedia/en/7/76/Paris_texas_moviep.jpg" width="220" height="342">
-    <h2>Paris, Texas</h2>
-    <div class="storyline">
-      <p>After wandering in the desert, a man reunites with his son and wife.</p>
-    </div>  
+    <h2>Paris, Texas</h2> 
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="6CtquHsxoZo" data-toggle="modal" data-target="#trailer">
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="6CtquHsxoZo" data-movie-storyline="The night before her wedding, a society heiress reconsiders her upcoming nuptials." data-toggle="modal" data-target="#trailer">
     <img src="https://upload.wikimedia.org/wikipedia/en/5/54/The-Philadelphia-Story-%281940%29.jpg" width="220" height="342">
-    <h2>The Philadelphia Story</h2>
-    <div class="storyline">
-      <p>The night before her wedding, a society heiress reconsiders her upcoming nuptials.</p>
-    </div>  
+    <h2>The Philadelphia Story</h2> 
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="L6PKkxn7pq0" data-toggle="modal" data-target="#trailer">
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="L6PKkxn7pq0" data-movie-storyline="An exiled London cop finds trouble in a quaint British town in the countryside." data-toggle="modal" data-target="#trailer">
     <img src="http://www.gstatic.com/tv/thumb/movieposters/163411/p163411_p_v7_aa.jpg" width="220" height="342">
-    <h2>Hot Fuzz</h2>
-    <div class="storyline">
-      <p>An exiled London cop finds trouble in a quaint British town in the countryside.</p>
-    </div>  
+    <h2>Hot Fuzz</h2> 
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="FNppLrmdyug" data-toggle="modal" data-target="#trailer">
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="FNppLrmdyug" data-movie-storyline="A woman grapples with her best friend's upcoming wedding. Hilarity ensues." data-toggle="modal" data-target="#trailer">
     <img src="https://upload.wikimedia.org/wikipedia/en/d/df/BridesmaidsPoster.jpg" width="220" height="342">
-    <h2>Bridesmaids</h2>
-    <div class="storyline">
-      <p>A woman grapples with her best friend's upcoming wedding. Hilarity ensues.</p>
-    </div>  
+    <h2>Bridesmaids</h2> 
 </div>
+
 
     </div>
   </body>

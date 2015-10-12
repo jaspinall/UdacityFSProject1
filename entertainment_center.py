@@ -34,4 +34,4 @@ bridesmaids = media.Movie("Bridesmaids",
                           "https://www.youtube.com/watch?v=FNppLrmdyug")
 
 movies = [annie_hall, clue, paris_texas, the_philadelphia_story, hot_fuzz, bridesmaids]
-fresh_tomatoes1.open_movies_page(movies)
+fresh_tomatoes.open_movies_page(movies)
