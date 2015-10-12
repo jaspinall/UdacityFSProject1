@@ -11,4 +11,7 @@ You must download all files for the website to function properly. Once you have 
 The program will generate and open an HTML file. 
 
 ---
+Created in Python version 2.7.10
+
+---
 Photo by Josh Felise at Unsplash: (https://unsplash.com/jfelise)
