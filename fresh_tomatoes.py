@@ -24,6 +24,7 @@ main_page_head = '''
             color: #f9ca1d;
         }
         #trailer .modal-dialog {
+            color: #4f4c4c;
             margin-top: 200px;
             width: 640px;
             height: 480px;
@@ -72,20 +73,27 @@ main_page_head = '''
 
       // Start playing the video whenever the trailer modal is opened
        $(document).on('click', '.movie-tile', function (event) {
-            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var title= $(this).attr('data-movie-title');
+            var storyline= "<p>Storyline: "+ $(this).attr('data-movie-storyline') + "</p>";
+            var release_date= "<p>Release Date: "+ $(this).attr('data-release-date') + "</p>";
+            var starring= "<p>Starring: "+ $(this).attr('data-starring') + "</p>";
+            var summary= "<div class='container modal-header'>" + title + "</div>" + "<div class='container'>"+ storyline + release_date + starring+ "</div>";
+            $("#info-container").html(summary);
+
+           var trailerYouTubeId = $(this).attr('data-trailer-youtube-id');
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
               'id': 'trailer-video',
               'type': 'text-html',
               'src': sourceUrl,
               'frameborder': 0
-            }));
-        }); 
-        
+              }));
+            });
+
         // Animate in the movies when the page loads
         $(document).ready(function () {
           $('.movie-tile').hide().first().show("fast", function showNext() {
-            $(this).next("div").show("fast", showNext);  
+            $(this).next("div").show("fast", showNext);
           });
         });
     </script>
@@ -103,8 +111,10 @@ main_page_content = '''
           <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
             <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
           </a>
-          <div class="scale-media" id="trailer-video-container">
+          <div id="info-container">
           </div>
+          <div class="scale-media" id="trailer-video-container">
+          </div> 
         </div>
       </div>
     </div>
@@ -129,13 +139,11 @@ main_page_content = '''
 
 # A single movie entry html template
 movie_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-movie-title="{movie_title}" data-movie-storyline="{movie_storyline}" data-release-date="{release_date}" data-starring="{starring}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="220" height="342">
-    <h2>{movie_title}</h2>
-    <div class="storyline">
-      <p>{movie_storyline}</p>
-    </div>  
+    <h2>{movie_title}</h2> 
 </div>
+
 '''
 
 
@@ -156,7 +164,9 @@ def create_movie_tiles_content(movies):
             movie_title=movie.title,
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id,
-            movie_storyline=movie.storyline
+            movie_storyline=movie.storyline, 
+            release_date=movie.release_date,
+            starring=movie.starring
         )
     return content
 
